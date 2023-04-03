@@ -1,9 +1,8 @@
 name: Action-Test
 
-
 on:
   schedule:
-    - cron: "11 11 * * *"
+    - cron: "1 * * * *"
   # push:
   #   branches:
   #     - main
@@ -12,25 +11,9 @@ on:
   #     - main
 
 jobs:
-  version_update:
-    #if: "contains(github.event.head_commit.message, '#prerelease')"
-    runs-on: ubuntu-latest
-    name: Version Update
-    steps:
-      - name: Checkout...
-        uses: actions/checkout@v3
-
-      - name: Version update
-        uses: 'phips28/gh-action-bump-version@master'
-        with:
-          tag-prefix: ''
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PACKAGEJSON_DIR: './'
-
   build:
     #if: "contains(github.event.head_commit.message, '#prerelease')"
-    needs: version_update
+    #needs: version_update
     runs-on: ubuntu-latest
     name: Build
 
