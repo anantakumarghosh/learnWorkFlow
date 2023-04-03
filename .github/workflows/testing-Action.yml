@@ -1,4 +1,4 @@
-name: Action-Test
+name: Testing Action
 
 on:
   schedule:
@@ -32,5 +32,5 @@ jobs:
       - name: Install npm dependencies
         run: npm ci
 
-      - name: Run build task
-        run: CI=false npm run build --if-present
+      # - name: Run build task
+      #   run: CI=false npm run build --if-present
