@@ -1,4 +1,4 @@
-name: Testing Action
+name: Action-test
 
 on:
   schedule:
