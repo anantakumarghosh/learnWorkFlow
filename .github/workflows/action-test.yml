@@ -2,7 +2,7 @@ name: Action-test
 
 on:
   schedule:
-    - cron: "1 * * * *"
+    - cron: "2 * * * *"
   # push:
   #   branches:
   #     - main
@@ -11,9 +11,9 @@ on:
   #     - main
 
 jobs:
-  build:
+  install-dep:
     runs-on: ubuntu-latest
-    name: Build
+    name: Run
 
     strategy:
       matrix:
@@ -31,6 +31,3 @@ jobs:
 
       - name: Install npm dependencies
         run: npm ci
-
-      # - name: Run build task
-      #   run: CI=false npm run build --if-present
