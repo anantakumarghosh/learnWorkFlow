@@ -3,7 +3,7 @@ name: Action-Test
 
 on:
   schedule:
-    - cron: "34 10 * * *"
+    - cron: "46 10 * * *"
   # push:
   #   branches:
   #     - main
