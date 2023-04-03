@@ -15,7 +15,7 @@ name: Action-Testing
 
 on:
   schedule:
-    - cron: "27 15 * * *"   #every sunday 12AM
+    - cron: "31 15 * * *"   #every sunday 12AM
   push:
     branches:
       - main
