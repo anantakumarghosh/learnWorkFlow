@@ -3,8 +3,8 @@ name: testing Again
 
 on:
   schedule:
-    - cron: "5 6 * * *"    #11:35am
-    - cron: "20 6 * * *"    #11:50am
+    - cron: "40 12 * * *"    #6:10pm
+    - cron: "10 13 * * *"    #6:40pm
   # push:
   #   branches:
   #     - main
