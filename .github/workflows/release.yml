@@ -1,0 +1,49 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Create release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body: |
+          Changes in this release:
+          - First change xyz
+          - Second change abc
+        draft: false
+        prerelease: false
+  # notify:
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   if: success()
+  #   steps:
+  #           # Notify the webhook about the completion of Action A
+  #     - name: Send a webhook notification
+  #       uses: distributhor/webhook-action@v1
+  #       with:
+  #         #url: https://your-webhook-url.com
+  #         method: POST
+  #         body: '{"event": "actionA_completed"}'
+            
+
+    # - name: Publish release
+    #   uses: actions/upload-release-asset@v1
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #   with:
+    #     upload_url: ${{ steps.create_release.outputs.upload_url }}
+    #     asset_path: ./dist/release.zip
+    #     asset_name: release.zip
+    #     asset_content_type: application/zip

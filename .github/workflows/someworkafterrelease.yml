@@ -1,0 +1,16 @@
+name: Action B
+
+on:
+  workflow_run:
+    workflows: ["Release"]
+    types:
+      - completed
+  #repository_dispatch:
+    #types: [actionA_completed]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hello"
+      
