@@ -1,0 +1,11 @@
+name: On publish
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  published:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Something was published, pre release or release tag created..."
