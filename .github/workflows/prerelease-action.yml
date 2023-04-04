@@ -1,0 +1,11 @@
+name: Pre Release Tag Creation
+
+on:
+  release:
+    types: [prereleased]
+
+jobs:
+  prereleased:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "New pre release tag created..."
